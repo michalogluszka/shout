@@ -8,8 +8,10 @@
     "Microsoft.AspNet.Server.Kestrel": "1.0.0-beta5"
   },
 
-  "commands": {    
-    "web": "Microsoft.AspNet.Server.Kestrel"
+  "commands": {
+    "web": "Microsoft.AspNet.Server.Kestrel",
+    "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --config hosting.ini"
+
   },
 
   "frameworks": {
