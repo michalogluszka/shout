@@ -7,7 +7,7 @@
   },
 
   "commands": {
-    "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --config hosting.ini"
+    "kestrel": "Microsoft.AspNet.Server.Kestrel"
   },
 
   "frameworks": {
