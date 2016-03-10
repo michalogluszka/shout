@@ -1,22 +1,31 @@
 ﻿{
   "webroot": "wwwroot",
   "version": "1.0.0-*",
+  "compilationOptions": {
+        "emitEntryPoint": true
+    },
 
   "dependencies": {    
-    "Microsoft.AspNet.Server.Kestrel": "1.0.0-*"
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-*",
+      "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-*",
+  "Microsoft.Extensions.Configuration.Json": "1.0.0-*",
+  "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0-*",
+  "Microsoft.Extensions.Logging": "1.0.0-*",
+  "Microsoft.Extensions.Logging.Console": "1.0.0-*",
+  "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-*"    
   },
 
   "commands": {
     "kestrel": "Microsoft.AspNet.Server.Kestrel"
+    
   },
+  
 
   "frameworks": {
-    "dnxcore50": {       
+    "dnxcore50": { 
         "dependencies": {
-            "System.Console": "4.0.0-*",
-            "System.Runtime": "4.0-21-*"
         }
-      }    
+     }    
   },
 
   "publishExclude": [
