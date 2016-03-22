@@ -7,7 +7,7 @@ namespace shout.Controllers
     [Route("api/[controller]")]
     public class UserController : Controller
     {
-        // GET: api/values
+        // GET: api/user
         [HttpGet]
         public IEnumerable<string> Get()
         {
