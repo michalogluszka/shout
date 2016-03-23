@@ -6,11 +6,12 @@
 
   "dependencies": {    
     "Microsoft.AspNet.Server.Kestrel": "1.0.0-*",
-    "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"      
+    "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",   
+    "Microsoft.AspNet.Cors": "6.0.0-rc1-final"
   },
 
   "commands": {
-    "kestrel": "Microsoft.AspNet.Server.Kestrel"
+    "kestrel": "Microsoft.AspNet.Server.Kestrel"    
     
   },
   
