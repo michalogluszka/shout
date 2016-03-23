@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Microsoft.AspNet.Mvc;
 
 
-namespace shout.Controllers
+namespace Shout.UserService.Controllers
 {
     [Route("api/[controller]")]
     public class UserController : Controller
