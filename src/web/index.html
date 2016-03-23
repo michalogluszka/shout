@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shout</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $.ajax({
+                            url: "http://localhost:5000/api/user"
+                       }).then(function(data) {
+                            $('.userName').append(data.UserName);
+    });
+});
+        </script>
+    </head>
+
+    <body>
+        <div>
+            <p class="userName">The UserName is </p>            
+        </div>
+    </body>
+</html>
