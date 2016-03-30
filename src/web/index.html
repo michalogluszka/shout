@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Shout</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>
-            $(document).ready(function() {
+
+<head>
+    <title>Shout</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css"  rel="stylesheet">
+    <script>
+        $(document).ready(function() {
                 $.ajax({
                             url: "http://localhost:5000/api/user"
                        }).then(function(data) {
                             $('.userName').append(data.UserName);
     });
 });
-        </script>
-    </head>
+    </script>
+</head>
 
-    <body>
+<body>
+    <div class="container">
+        <h1>Hello from Bootstrap</h1>
         <div>
-            <p class="userName">The UserName is </p>            
+            <p class="userName">The UserName is </p>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
