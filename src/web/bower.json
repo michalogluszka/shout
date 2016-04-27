@@ -17,5 +17,13 @@
   ],
   "dependencies": {
     "bootstrap": "^3.3.6"
+  },
+  "overrides": {
+  "bootstrap": {
+    "main": [
+      "dist/css/bootstrap.css"
+    ]
   }
+}
+  
 }

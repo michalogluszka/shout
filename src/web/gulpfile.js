@@ -2,9 +2,14 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var mainBowerFiles = require('gulp-main-bower-files');
 var gulpDebug = require('gulp-debug');
+var inject = require('gulp-inject');
 
 var publishFolder = 'public';
-var libsFolder = 'libs';
+
+ 
+gulp.task('index', function () {
+
+});
 
 
 gulp.task('default', function() {
@@ -14,13 +19,18 @@ gulp.task('default', function() {
 
 gulp.task('publish', ['default'], function() {
    
-  // copy any html files in source/ to public/
-  gutil.log('copying html files');
-  gulp.src('*.html').pipe(gulp.dest(publishFolder));  
   
   gulp.src('./bower.json')
     .pipe(mainBowerFiles())
-    .pipe(gulpDebug({title:'debug-mainBowerFiles'}))
-    .pipe(gulp.dest(publishFolder))
-    .pipe(gulpDebug({title:publishFolder}));  
+    .pipe(gulpDebug())
+    .pipe(gulp.dest(publishFolder));   
+
+  var sources = gulp.src('**/*.css', { read: false, cwd: __dirname + '/public'} )
+    .pipe(gulpDebug({title:'d'}));
+ 
+  // copy any html files in source/ to public/
+  gutil.log('moving index.html file and auto-include');
+  gulp.src('index.html')
+    .pipe(inject(sources))
+    .pipe(gulp.dest(publishFolder));
 });
