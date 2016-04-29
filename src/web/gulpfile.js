@@ -6,14 +6,7 @@ var inject = require('gulp-inject');
 
 var publishFolder = 'public';
 
- 
-gulp.task('index', function () {
-
-});
-
-gulp.task('bower', function() {
-   
-  
+gulp.task('bower', function() {  
   return gulp.src('./bower.json')
     .pipe(mainBowerFiles())
     .pipe(gulpDebug({title:'mainbowerfiles'}))
