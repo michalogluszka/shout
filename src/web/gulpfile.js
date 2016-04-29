@@ -11,26 +11,28 @@ gulp.task('index', function () {
 
 });
 
-
-gulp.task('default', function() {
-  // place code for your default task here
-  gutil.log('gulp started')  
-});
-
-gulp.task('publish', ['default'], function() {
+gulp.task('bower', function() {
    
   
-  gulp.src('./bower.json')
+  return gulp.src('./bower.json')
     .pipe(mainBowerFiles())
-    .pipe(gulpDebug())
-    .pipe(gulp.dest(publishFolder));   
+    .pipe(gulpDebug({title:'mainbowerfiles'}))
+    .pipe(gulp.dest(publishFolder));
+});
+
+gulp.task('injectcss', ['bower'], function() {
 
   var sources = gulp.src('**/*.css', { read: false, cwd: __dirname + '/public'} )
-    .pipe(gulpDebug({title:'d'}));
+    .pipe(gulpDebug({title:'src'}));
  
   // copy any html files in source/ to public/
   gutil.log('moving index.html file and auto-include');
-  gulp.src('index.html')
+  return gulp.src('index.html')
     .pipe(inject(sources))
     .pipe(gulp.dest(publishFolder));
 });
+
+gulp.task('publish', ['bower','injectcss'], function() {
+    gutil.log('publish started');
+    return;
+})
