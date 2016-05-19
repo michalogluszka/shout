@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using Microsoft.AspNetCore.Cors;
+
 namespace Shout.UserService
 {
     public class Startup
@@ -24,12 +26,17 @@ namespace Shout.UserService
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
+                                                                        .AllowAnyMethod()
+                                                                         .AllowAnyHeader()));     
             services.AddMvc();            
         }
     
     public void Configure(IApplicationBuilder app)
         {
-             app.UseMvc(routes =>
+            app.UseCors("AllowAll");
+            
+            app.UseMvc(routes =>
              {
                  routes.MapRoute(
                      name: "default",
