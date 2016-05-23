@@ -1,8 +1,10 @@
 clear
+pm2 kill
 
 echo "Starting up build pipeline"
 
 cd userService
+rm -rf obj
 dotnet restore
 dotnet build
 pm2 start --name userService dotnet -- run 
